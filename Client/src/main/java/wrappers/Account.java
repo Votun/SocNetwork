@@ -1,11 +1,11 @@
-package ClientLogic;
+package wrappers;
 
 import java.awt.*;
 
 public class Account {
+    private final long ID;
     private String name;
     private Image icon;
-    private final int ID;
 
     public Account(String name, Image icon, int ID) {
         this.name = name;
@@ -17,7 +17,7 @@ public class Account {
         return name;
     }
 
-    public void setName(String name) {
+    public void changeName(String name) {
         this.name = name;
     }
 
@@ -25,11 +25,11 @@ public class Account {
         return icon;
     }
 
-    public void setIcon(Image icon) {
+    public void changeIcon(Image icon) {
         this.icon = icon;
     }
 
-    public int getID() {
+    public long getID() {
         return ID;
     }
 
@@ -46,6 +46,9 @@ public class Account {
 
     @Override
     public int hashCode() {
-        return ID;
+        int result = name.hashCode();
+        result = 31 * result + (icon != null ? icon.hashCode() : 0);
+        result = 31 * result + (int) (ID ^ (ID >>> 32));
+        return result;
     }
 }

@@ -1,12 +1,13 @@
 package ClientLogic;
 
 import messages.Command;
+import wrappers.Account;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.Socket;
 import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class Client {
     private static final String DEFAULT_HOST = "localhost"; // 127.0.0.1
@@ -23,10 +24,10 @@ public class Client {
                 InputStreamReader in = new InputStreamReader(serverSocket.getInputStream());
                 OutputStream out = serverSocket.getOutputStream())
         {
-            Receiver inThread = new Receiver(in);
-            Sender outThread = new Sender(out);
+            //Receiver inThread = new Receiver(in);
+            Sender outThread = new TCPSender(out);
             do{
-                Command command = cvi.getMesaage();//todo messageFactory
+                Command command = cvi.getMessage();//todo messageFactory
                 out.write(command.toBytes());//todo в Sender
             }while(true);
         }

@@ -10,4 +10,13 @@ public class LoginCommand implements Command{
         this.password = password;
     }
 
+    @Override
+    public byte[] toBytes() {
+        String message = "<<LOGIN>>" +
+                name +
+                ";;" +
+                password +
+                "<<END>>";
+        return message.getBytes();
+    }
 }
