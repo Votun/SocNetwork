@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.gjt.mm.mysql:mysql:unknown">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/gjt/mm/mysql/mysql/unknown/mysql-unknown.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/gjt/mm/mysql/mysql/unknown/mysql-unknown-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/gjt/mm/mysql/mysql/unknown/mysql-unknown-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

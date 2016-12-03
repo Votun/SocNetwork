@@ -11,7 +11,35 @@
     <modules>
         <module>Client</module>
         <module>Server</module>
+        <module>RegistrationService</module>
+        <module>AuthenticationService</module>
+        <module>MessageService</module>
+        <module>FriendsManager</module>
+        <module>PhotoManager</module>
+        <module>NewsService</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.3.4.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.3.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>LATEST</version>
+        </dependency>
+        <dependency>
+            <groupId>org.gjt.mm.mysql</groupId>
+            <artifactId>mysql</artifactId>
+        </dependency>
+    </dependencies>
 
 
 </project>

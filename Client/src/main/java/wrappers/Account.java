@@ -3,22 +3,28 @@ package wrappers;
 import java.awt.*;
 
 public class Account {
-    private final long ID;
-    private String name;
+    private final String login;
+    private long ID;
+    private String first_name;
+    private String last_name;
     private Image icon;
 
-    public Account(String name, Image icon, int ID) {
-        this.name = name;
-        this.icon = icon;
-        this.ID = ID;
+    public Account(String login, String first_name, String last_name) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.login = login;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return first_name;
     }
 
-    public void changeName(String name) {
-        this.name = name;
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public String getLogin() {
+        return login;
     }
 
     public Image getIcon() {
@@ -33,6 +39,12 @@ public class Account {
         return ID;
     }
 
+    public void setID(long id) {
+        this.ID = id;
+    }
+
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -46,9 +58,8 @@ public class Account {
 
     @Override
     public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + (icon != null ? icon.hashCode() : 0);
-        result = 31 * result + (int) (ID ^ (ID >>> 32));
+        int result = (int) (ID ^ (ID >>> 32));
+        result = 31 * result + login.hashCode();
         return result;
     }
 }

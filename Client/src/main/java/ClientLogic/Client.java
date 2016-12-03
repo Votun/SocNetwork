@@ -1,6 +1,5 @@
 package ClientLogic;
 
-import messages.Command;
 import wrappers.Account;
 
 import java.io.IOException;
@@ -26,10 +25,7 @@ public class Client {
         {
             //Receiver inThread = new Receiver(in);
             Sender outThread = new TCPSender(out);
-            do{
-                Command command = cvi.getMessage();//todo messageFactory
-                out.write(command.toBytes());//todo в Sender
-            }while(true);
+
         }
     }
 

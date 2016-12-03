@@ -22,14 +22,28 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="Chat" />
+        <module name="ChatService" />
         <module name="Client" />
+        <module name="FriendsManager" />
+        <module name="Login" />
+        <module name="LoginService" />
+        <module name="NewsService" />
+        <module name="PhotoManager" />
+        <module name="RegistrationService" />
         <module name="Server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="Client" target="1.5" />
-      <module name="Server" target="1.5" />
-      <module name="SocNetwork" target="1.5" />
+      <module name="Chat" target="1.8" />
+      <module name="Client" target="1.8" />
+      <module name="FriendsManager" target="1.8" />
+      <module name="Login" target="1.8" />
+      <module name="NewsService" target="1.8" />
+      <module name="PhotoManager" target="1.8" />
+      <module name="RegistrationService" target="1.8" />
+      <module name="Server" target="1.8" />
+      <module name="SocNetwork" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
