@@ -25,22 +25,35 @@
         <module name="Chat" />
         <module name="ChatService" />
         <module name="Client" />
+        <module name="commons" />
+        <module name="friendsManager" />
         <module name="FriendsManager" />
         <module name="Login" />
+        <module name="loginService" />
         <module name="LoginService" />
+        <module name="messageService" />
         <module name="NewsService" />
+        <module name="newsService" />
         <module name="PhotoManager" />
+        <module name="photoManager" />
+        <module name="registrationService" />
         <module name="RegistrationService" />
-        <module name="Server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="Chat" target="1.8" />
       <module name="Client" target="1.8" />
+      <module name="commons" target="1.8" />
       <module name="FriendsManager" target="1.8" />
+      <module name="friendsManager" target="1.8" />
       <module name="Login" target="1.8" />
+      <module name="loginService" target="1.8" />
+      <module name="messageService" target="1.8" />
+      <module name="newsService" target="1.8" />
       <module name="NewsService" target="1.8" />
+      <module name="photoManager" target="1.8" />
       <module name="PhotoManager" target="1.8" />
+      <module name="registrationService" target="1.8" />
       <module name="RegistrationService" target="1.8" />
       <module name="Server" target="1.8" />
       <module name="SocNetwork" target="1.8" />
