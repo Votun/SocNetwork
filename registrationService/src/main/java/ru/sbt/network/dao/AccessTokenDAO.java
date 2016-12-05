@@ -14,12 +14,12 @@ public class AccessTokenDAO {
 
     public void addToken(Number id, String password) {
         final String query = "INSERT INTO ACCESS_TOKENS " +
-                "(account_id, pswd, ) VALUES (?, ?)";
+                "(acc_id, pswd, ) VALUES (?, ?)";
 
         template.update(query, id, password);
     }
 
     public int delete(int accountID, String password) {
-        return template.update("DELETE FROM accessTokens WHERE account_id = ? AND pswd = ?", accountID, password);
+        return template.update("DELETE FROM accessTokens WHERE acc_id = ? AND pswd = ?", accountID, password);
     }
 }

@@ -1,7 +1,6 @@
 package ru.sbt.network;
 
 import objects.Account;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runners.Parameterized;
@@ -37,16 +36,18 @@ public class AccountDaoTest {
             System.out.println(account);
         }
     }
+//DuplicateKeyException
 
-    @Before
-    public void setUpDeleteTest() {
-        id = testDao.insert(acc2);
-    }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void deleteTest() {
-        testDao.delete(id);
-        Map<String, Object> account = template.queryForMap("SELECT * FROM accounts;");
-        System.out.println(account);
+        template.update("INSERT INTO accounts(login, first_name, last_name)" + "VALUES (?,?,?)",
+                acc2.getLogin(), acc2.getFirst_Name(), acc2.getLast_name());
+        Number result = (Number) template.queryForMap("SELECT acc_id FROM ACCOUNTS WHERE login = ?", acc2.getLogin()).get("acc_id");
+        acc2.setID(result.intValue());
+
+        testDao.delete(acc2.getID());
+        List<Map<String, Object>> accountList = template.queryForList("SELECT * FROM accounts where login =?;", acc2.getLogin());
+        if (accountList.isEmpty()) throw new NullPointerException();
     }
 }

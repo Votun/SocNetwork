@@ -42,22 +42,18 @@ public class AccountRegDAO {
         }
     }
 
-    public int insert(Account account) {
+    public void insert(Account account) {
         insertAccount = new SimpleJdbcInsert(template);
         insertAccount.withTableName("accounts");
         SqlParameterSource params = new BeanPropertySqlParameterSource(account);
-        String[] paramNames = new BeanPropertySqlParameterSource(account).getReadablePropertyNames();
-        for (String paramName : paramNames) {
-            System.out.println(paramName);
-        }
-        insertAccount.usingGeneratedKeyColumns("id");
+        insertAccount.usingGeneratedKeyColumns("acc_id");
         insertAccount.usingColumns("login", "first_name", "last_name");
         int result = insertAccount.executeAndReturnKey(params).intValue();
         System.out.println("New account id:" + result);
-        return result;
+        account.setID(result);
     }
 
     public int delete(Number accountID) {
-        return template.update("DELETE FROM accounts WHERE id = ?", accountID);
+        return template.update("DELETE FROM accounts WHERE acc_id = ?", accountID);
     }
 }
