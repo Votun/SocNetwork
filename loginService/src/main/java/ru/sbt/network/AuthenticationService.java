@@ -1,12 +1,12 @@
 package ru.sbt.network;
 
 
-import messages.Command;
-import messages.Response;
+import org.springframework.expression.AccessException;
+import ru.sbt.network.objects.Account;
 
 public interface AuthenticationService {
 
-    Response login(Command loginCommand);
+    Account login(String login, String password) throws AccessException;
 
-    Response logout(Command logoutCommand);
+    void logout(long id);
 }
