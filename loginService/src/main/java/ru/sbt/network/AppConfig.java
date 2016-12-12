@@ -2,9 +2,12 @@ package ru.sbt.network;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -27,9 +30,9 @@ public class AppConfig {
     @Bean
     public DriverManagerDataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource(" jdbc:h2:tcp://localhost/~/test", "sa", "");
-//        Resource resource = new ClassPathResource("testTable.sql");
-//        ResourceDatabasePopulator databasePop = new ResourceDatabasePopulator(resource);
-//        databasePop.execute(dataSource);
+        Resource resource = new ClassPathResource("testTable.sql");
+        ResourceDatabasePopulator databasePop = new ResourceDatabasePopulator(resource);
+        databasePop.execute(dataSource);
         return dataSource;
     }
 

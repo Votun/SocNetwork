@@ -42,6 +42,7 @@ public class AccRepositoryTest {
         inTransaction(tt, () -> {
             System.out.println(accRepository.setOnline(1));
             System.out.println(accRepository.findByLogin("first").isOnline());
+            return null;
         });
     }
 
@@ -50,6 +51,7 @@ public class AccRepositoryTest {
         inTransaction(tt, () -> {
             System.out.println(accRepository.setOffline(AuService.getCurTime(), 1));
             System.out.println(accRepository.findByLogin("first").isOnline());
+            return null;
         });
     }
 
